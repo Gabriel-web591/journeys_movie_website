@@ -37,7 +37,8 @@ Maté, Graham Hancock, Dennis McKenna and more. Watch now." />
 <link rel="preconnect" href="https://use.typekit.net" crossorigin>
 <link rel="preconnect" href="https://p.typekit.net" crossorigin>
 <script>document.documentElement.classList.add('wf-loading')</script>
-<style>@keyframes fonts-loading { 0%, 99% { color: transparent; } } html.wf-loading * { animation: fonts-loading 3s; }</style>
+<style>
+* { max-width: 100% }@keyframes fonts-loading { 0%, 99% { color: transparent; } } html.wf-loading * { animation: fonts-loading 3s; }</style>
 <script type="text/javascript" crossorigin="anonymous" defer="true" nomodule="nomodule" src="//assets.squarespace.com/@sqs/polyfiller/1.6/legacy.js"></script>
 <script type="text/javascript" crossorigin="anonymous" defer="true" src="//assets.squarespace.com/@sqs/polyfiller/1.6/modern.js"></script>
 <script type="text/javascript">SQUARESPACE_ROLLUPS = {};</script>
@@ -58,6 +59,257 @@ Maté, Graham Hancock, Dennis McKenna and more. Watch now." />
   body, html, h1, h2, h3, h4, h5, h6, p, a, span, div, input, button, textarea {
     font-family: "acumin-pro", sans-serif;
   }
+
+@media (max-width: 768px) {
+  /* === VERTICALLY & HORIZONTALLY CENTER THE WHOLE PAGE === */
+  #page-5f22c1f84bd7ac5016753b30 .Main-content {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 100vh !important;
+    padding: 0 15px !important;
+    box-sizing: border-box;
+  }
+
+  /* === CENTER LANGUAGE BUTTONS === */
+  #page-5f22c1f84bd7ac5016753b30 .sqs-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+
+  #page-5f22c1f84bd7ac5016753b30 .col {
+    width: 100% !important;
+    max-width: 350px !important;
+    margin: 0 auto 15px auto !important;
+    padding: 0 !important;
+  }
+
+  .sqs-block-button-container {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .sqs-block-button-element {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    font-size: 18px !important;
+    padding: 12px 0 !important;
+  }
+
+  /* Adjust welcome text */
+  h3 {
+    font-size: 20px !important;
+    line-height: 1.3em !important;
+    text-align: center !important;
+  }
+
+  /* === FIX MOBILE NAV ICON VISIBILITY === */
+  .Mobile-bar-menu svg {
+    fill: white !important;
+    stroke: white !important;
+  }
+
+  .Mobile-bar {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* === PREVENT HORIZONTAL SCROLL === */
+  body, html {
+    overflow-x: hidden !important;
+  }
+  .Header-branding,
+  .Mobile-bar-branding {
+    color: white !important;
+    font-weight: bold !important;
+    text-align: center !important;
+  }
+
+  /* Also ensure subtitle/tagline is visible */
+  .Header-tagline {
+    color: white !important;
+  }
+  .Mobile-bar-menu {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .Mobile-bar-menu svg,
+  .Mobile-bar-menu use {
+    fill: white !important;
+    stroke: white !important;
+  }
+  .Mobile-bar-menu .Icon--hamburger {
+    display: block !important;
+    fill: white !important;
+    stroke: white !important;
+  }
+
+  /* Hide all other icon variations */
+  .Mobile-bar-menu .Icon--hotdog,
+  .Mobile-bar-menu .Icon--plus,
+  .Mobile-bar-menu .Icon--dots-horizontal,
+  .Mobile-bar-menu .Icon--dots-vertical,
+  .Mobile-bar-menu .Icon--squares-horizontal,
+  .Mobile-bar-menu .Icon--squares-vertical {
+    display: none !important;
+  }
+ .Mobile-overlay,
+  .Mobile-overlay * {
+    background-color: rgb(22, 22, 22) !important;
+    width: 100%;
+  }
+
+  /* Ensure background overlay is also black */
+  .Mobile-overlay-bg,
+  .Mobile-overlay::before {
+    background-color: rgb(61, 61, 61) !important;
+  }
+
+  /* Keep link styles */
+  .Mobile-overlay a {
+    color: #ccc !important;
+    background: transparent !important;
+  }
+
+  .Mobile-overlay a:hover,
+  .Mobile-overlay a:active {
+    background: #333 !important;
+    color: white !important;
+  }
+}
+   /* === Animated Hamburger === */
+.Mobile-bar-menu {
+    position: absolute !important;
+    top: 15px;
+    right: 15px;
+    z-index: 9999;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+  }
+
+  /* Hide Squarespace's default SVG */
+  .Mobile-bar-menu svg {
+    display: none !important;
+  }
+
+  /* Hamburger bars */
+  .Mobile-bar-menu::before,
+  .Mobile-bar-menu::after,
+  .Mobile-bar-menu span {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: white;
+    transition: all 0.3s ease;
+  }
+  .Mobile-bar-menu::before { top: 6px; }
+  .Mobile-bar-menu span { top: 12px; }
+  .Mobile-bar-menu::after { bottom: 6px; }
+
+  /* Open menu → X icon */
+  .Mobile-overlay--open .Mobile-bar-menu::before {
+    transform: rotate(45deg);
+    top: 12px;
+  }
+  .Mobile-overlay--open .Mobile-bar-menu span {
+    opacity: 0;
+  }
+  .Mobile-overlay--open .Mobile-bar-menu::after {
+    transform: rotate(-45deg);
+    bottom: 12px;
+  }
+
+  /* ===== Mobile menu background ===== */
+  .Mobile-overlay,
+  .Mobile-overlay nav,
+  .Mobile-overlay .Header-nav,
+  .Mobile-overlay-bg,
+  .Mobile-overlay::before {
+    background: black !important;
+  }
+
+  /* ===== Menu links ===== */
+  .Mobile-overlay a {
+    display: block !important;
+    width: 100% !important;
+    max-width: 280px;
+    margin: 0 auto;
+    text-align: center !important;
+    color: #ccc !important;
+    background: transparent !important;
+    padding: 12px 0 !important;
+    font-size: 16px !important;
+    text-transform: uppercase;
+  }
+  .Mobile-overlay a:hover,
+  .Mobile-overlay a:active {
+    background: #333 !important;
+    color: white !important;
+  }
+
+  /* ===== Align LANGUAGE with other links ===== */
+  .Mobile-overlay .Header-nav-folder {
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .Mobile-overlay .Header-nav-folder > a {
+    display: block !important;
+    width: 100% !important;
+    max-width: 280px;
+    margin: 0 auto;
+    text-align: center !important;
+    color: #ccc !important;
+    background: transparent !important;
+    padding: 12px 0 !important;
+    font-size: 16px !important;
+    text-transform: uppercase;
+  }
+  .Mobile-overlay .Header-nav-folder > a:hover {
+    background: #333 !important;
+    color: white !important;
+  }
+
+  /* === Mobile slide-out menu === */
+  .Mobile-overlay {
+    background: black !important;
+  }
+
+  .Mobile-overlay a {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    color: #ccc !important; /* grey text */
+    background: transparent !important;
+    padding: 12px 0 !important;
+    font-size: 16px !important;
+    text-transform: uppercase;
+  }
+
+  .Mobile-overlay a:hover,
+  .Mobile-overlay a:active {
+    background: #333 !important; /* dark grey on hover */
+    color: white !important;
+  }
+
+  /* Ensure LANGUAGE dropdown still works */
+  .Mobile-overlay .Header-nav-folder {
+    background: transparent !important;
+  }
+
+ 
+}
 </style>
 
   </head>
@@ -373,7 +625,7 @@ Maté, Graham Hancock, Dennis McKenna and more. Watch now." />
   <div class="Header-nav-inner">
     <span class="Header-nav-item Header-nav-item--folder">
 
-      <a href="" class="Header-nav-folder-title Header-nav-folder-title--active" data-controller="HeaderNavFolderTouch">LANGUAGE</a>
+      <a href="index.html" class="Header-nav-folder-title Header-nav-folder-title--active" data-controller="HeaderNavFolderTouch">LANGUAGE</a>
 
       <span class="Header-nav-folder">
         
@@ -627,6 +879,7 @@ Maté, Graham Hancock, Dennis McKenna and more. Watch now." />
 
 <div class="sqs-svg-icon--outer social-icon-alignment-center social-icons-color-white social-icons-size-extra-large social-icons-style-regular " >
   <style>
+* { max-width: 100% }
     #block-yui_3_17_2_1_1567067400839_5002 .social-icons-style-border .sqs-svg-icon--wrapper {
       
         box-shadow: 0 0 0 2px inset;
@@ -2909,6 +3162,7 @@ Maté, Graham Hancock, Dennis McKenna and more. Watch now." />
 
 <div class="sqs-svg-icon--outer social-icon-alignment-center social-icons-color-white social-icons-size-medium social-icons-shape-circle social-icons-style-border" >
   <style>
+* { max-width: 100% }
     #block-yui_3_17_2_64_1490968954157_9881 .social-icons-style-border .sqs-svg-icon--wrapper {
       
         box-shadow: 0 0 0 2px inset;
